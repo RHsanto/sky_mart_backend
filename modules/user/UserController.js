@@ -3,7 +3,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const getEmailFromToken = require("../../utils");
 const User = require("./User");
-const SECRET_KEY = "FFFFFF-^5&G#x9p@2C!s";
+const SECRET_KEY = process.env.SECRET_KEY;
+
 
 const register = async (req, res) => {
   const { userName, email, password } = req.body;

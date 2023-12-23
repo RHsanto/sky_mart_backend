@@ -1,16 +1,13 @@
 // backend/routes/productRoutes.js
 const express = require('express');
-const Product = require('./Product');
+const { getProducts, singleProduct } = require('./ProductController');
 const router = express.Router();
 
 
-router.get('/', async (req, res) => {
-  try {
-    const products = await Product.find();
-    res.json({ products });
-  } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
+// Here Products Route
+router.get("/products", getProducts);
+router.get("/product/:id", singleProduct);
+
+
 
 module.exports = router;
