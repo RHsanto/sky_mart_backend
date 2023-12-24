@@ -1,15 +1,16 @@
 // backend/server.js
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser")
 const PORT = 8000;
-require("dotenv").config();
 const auth = require("./modules/user/userRoutes");
+const app = express();
 const product = require("./modules/product/productRoutes");
 const { notFoundHandler, handleAllError } = require("./middlewares/errorhandler");
 
-const app = express();
+
 
 // initializations
 app.use(express.static("."));
@@ -33,7 +34,7 @@ app.use(bodyParser.json())
 
 
 app.get("/", (req, res) => {
-  res.send("Running the server on  App");
+  res.send("Running the server on sky mart  App");
 });
 
 app.listen(PORT, () => {
